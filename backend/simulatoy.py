@@ -8,7 +8,7 @@ load_dotenv()
 
 client = MongoClient(os.getenv("MONGO_URI"))
 
-db = client["railwheelfactory"]
+db = client["RWF"]
 collection = db["production"]
 
 print("Factory Simulator Started")
