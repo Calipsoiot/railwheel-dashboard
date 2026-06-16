@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:5000/production")
+      fetch("https://railwheel-dashboard.onrender.com/production")
         .then((res) => res.json())
         .then((data) => setData(data));
     };
