@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
@@ -5,14 +7,14 @@ const { MongoClient } = require("mongodb");
 const app = express();
 app.use(cors());
 
-const client = new MongoClient("mongodb://localhost:27017");
+const client = new MongoClient(process.env.MONGO_URI);
 
 app.get("/production", async (req, res) => {
   try {
     await client.connect();
 
     const data = await client
-      .db("railwheelfactory")
+      .db("RWF")
       .collection("production")
       .find()
       .toArray();
